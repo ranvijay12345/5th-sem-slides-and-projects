@@ -1,0 +1,92 @@
+[ec2-user@ip-172-31-88-88 ~]$ sudo service docker start
+Redirecting to /bin/systemctl start docker.service
+
+
+[ec2-user@ip-172-31-88-88 ~]$ sudo docker pull python:3.8-slim
+3.8-slim: Pulling from library/python
+Digest: sha256:47bcfecfc8b486a6cbd86cf2c67d74a18519ed29d43b5d4ee20692433e81d0a1
+Status: Image is up to date for python:3.8-slim
+docker.io/library/python:3.8-slim
+
+
+[ec2-user@ip-172-31-88-88 ~]$ sudo docker images
+REPOSITORY   TAG        IMAGE ID       CREATED      SIZE
+python       3.8-slim   2e56f6b0af69   7 days ago   122MB
+
+
+[ec2-user@ip-172-31-88-88 ~]$ sudo docker run -dit --name=pyContainer python:3.8-slim
+600ca157b1b928aa0337a55b5584b42125ea2c8c1bacfeef0b61728a1dd783fb
+
+
+[ec2-user@ip-172-31-88-88 ~]$ sudo docker container ls
+---------------------------------------------------------------------------------------------------------
+CONTAINER ID   IMAGE             COMMAND     CREATED          STATUS          PORTS     NAMES
+600ca157b1b9   python:3.8-slim   "python3"   11 seconds ago   Up 10 seconds             pyContainer
+
+
+[ec2-user@ip-172-31-88-88 ~]$ sudo docker exec -it pyContainer /bin/bash
+
+
+root@600ca157b1b9:/# python -c "print('Hello World from Ranvijay')"
+----------------------------------------------------------------------------------------------------------
+Hello World from Ranvijay
+
+
+root@600ca157b1b9:/# python --version
+---------------------------------------------------------------------
+Python 3.8.12
+
+
+root@600ca157b1b9:/# ls
+---------------------------------------------------------------------
+bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
+boot  etc  lib   media  opt  root  sbin  sys  usr
+
+
+root@600ca157b1b9:/# exit
+exit
+
+[ec2-user@ip-172-31-88-88 ~]$ sudo docker container stop pyContainer
+pyContainer
+
+
+[ec2-user@ip-172-31-88-88 ~]$ mkdir testfolder
+[ec2-user@ip-172-31-88-88 ~]$ pwd
+/home/ec2-user
+
+[ec2-user@ip-172-31-88-88 ~]$ sudo docker run -dit --name=pyC -v /home/ec2-user/testfolder:/myfolder python:3.8-slim
+docker: Error response from daemon: Conflict. The container name "/pyC" is already in use by container "5abbdabfe3c1e88c3028deb38a1dc976a0f09993ce3aeb9e961bfdb6bdf76f62". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+
+[ec2-user@ip-172-31-88-88 ~]$ sudo docker exec -it pyC /bin/bash
+Error response from daemon: Container 5abbdabfe3c1e88c3028deb38a1dc976a0f09993ce3aeb9e961bfdb6bdf76f62 is running
+
+[ec2-user@ip-172-31-88-88 ~]$ ls
+testfolder
+
+[ec2-user@ip-172-31-88-88 ~]$ cd testfolder
+
+SyntaxError: invalid syntax
+[ec2-user@ip-172-31-88-88 testfolder]$ vi lab6.py
+[ec2-user@ip-172-31-88-88 testfolder]$ python lab6.py
+[ec2-user@ip-172-31-88-88 testfolder]$
+
+
+[ec2-user@ip-172-31-88-88 testfolder]$ sudo docker run -dit --name=node-web-app -v /home/ec2-user/testfolder:/myfolder -p 80:5000 node:14.18
+Unable to find image 'node:14.18' locally
+14.18: Pulling from library/node
+af4c2580c6c3: Pull complete
+4ea40d27a2cf: Pull complete
+523d612e9cd2: Pull complete
+8fee6a1847b0: Pull complete
+60cce3519052: Pull complete
+4bae1011637c: Pull complete
+ecf48b6c1f43: Pull complete
+856f69196742: Pull complete
+e86a512b6f8c: Pull complete
+Digest: sha256:167d0a4af6b4e0d0769086b871a36c25faed75b72705144cabbda70466cc0d8e
+Status: Downloaded newer image for node:14.18
+79434c2dc432d73d403089d102199c8f1613cc1c0045c724612a197c09036e70
+
+
+[ec2-user@ip-172-31-88-88 testfolder]$ sudo docker exec -it node-web-app /bin/bash

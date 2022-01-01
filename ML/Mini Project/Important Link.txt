@@ -1,0 +1,16 @@
+https://github.com/emekaefidi/Bank-Marketing-with-Machine-Learning
+
+
+https://medium.com/swlh/using-machine-learning-to-predict-subscription-to-bank-term-deposits-for-clients-with-python-aec8a4690807
+
+
+
+https://medium.com/@ashim.maity8/predict-if-the-client-will-subscribe-a-term-deposit-or-not-using-machine-learning-c6e4024c7028
+
+https://github.com/HegdeChaitra/Bank-Marketing-Campaign-Analysis/blob/master/predicting-bank-marketing.pdf
+
+
+https://github.com/sinhabishal77/Predicting-whether-the-customer-will-subscribe-to-Term-Deposits
+
+
+Datasets - https://archive.ics.uci.edu/ml/datasets/Bank+Marketing

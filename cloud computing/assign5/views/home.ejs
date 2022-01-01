@@ -1,0 +1,93 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+.ti,.log{
+            margin-left: 45%;
+            color: rgb(108, 109, 108);
+            font-size: 30px;
+            font-family: 'roboto', sans-serif;
+        }
+        
+        *{
+            background-image: url("../lake-6627781_1280.jpg");
+           /* background-color: rgb(248, 218, 48); */
+           font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+           font-weight: 900;
+           font-size: 20px;
+          
+           
+        }
+        
+
+        
+
+        div form{
+            display:block;
+            border: 3px solid rgb(142, 176, 226);
+            padding-left: 50vw;
+        }
+    
+        .bg-img {
+      /* The image used */
+     
+    
+      min-height: 380px;
+    
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      
+    }
+    </style>
+</head>
+<body style='background: #222 url("https://unsplash.it/1920/1080/?random") center
+center no-repeat;'>
+
+    <%- include("partials/header") -%>
+    <div class="ti">
+        <h1 style=" font-size: 30px;">Cloud Assignment</h1>
+        <h3 style=" font-size: 30px;">Ranvijay Patel</h3>
+    </div>
+    
+    <div class="log">
+        <p style=" font-size: 30px;">Enter Your Complaint Here</p>
+    </div>
+    
+    <div class="float-container bg-img" > 
+        <div >
+            <form class="float-child"  action="/care" method="get" style="background-color: rgb(129, 203, 221);">Services
+                <div style="background-color: rgb(129, 203, 221);">
+                    <input type="submit" value="view as customer care" onChange="this.form.submit()"  >
+                </div>
+            </form>
+        </div>
+        <div>    
+            <form class="float-child"  action="/guest" method="get" style="background-color: rgb(129, 203, 221);">Guest
+                <div style="background-color: rgb(129, 203, 221);">
+                    <input type="submit" value="view as guest" onChange="this.form.submit()"  >
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    
+    
+    <%- include("partials/footer") -%>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<div>
+    <ngx-spinner size="large">
+        <p class="loading">Please wait while we are processing your request</p>
+    </ngx-spinner>
+    <!-- <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div> -->
+    <div id="main-wrapper">
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <h3 style="margin-left: 20px;">FP - Feedback Portal</h3>
+            </nav>
+        </header>
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <router-outlet></router-outlet>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer text-center">
+                All Rights Reserved by FP - Feedback Portal. Designed and Developed by <a href="">KamilNoor</a>.
+            </footer>
+        </div>
+    </div>
+</div>
